@@ -1,0 +1,30 @@
+<div style="text-align:left;width:500px;">
+    <h1>
+        {{ title }}!
+    </h1>
+
+    <table *ngIf="arrExercises">
+        <!-- ADD HEADERS -->
+        <tr>
+            <th>Date</th>
+            <th>Deadlift</th>
+            <th>Barbell Press</th>
+            <th>Dumbell Row</th>
+            <th>Bench Press</th>
+            <th>Lat Pull</th>
+            <th>Squat</th>
+            
+        </tr>
+
+        <!-- BIND ARRAY TO TABLE -->
+        <tr *ngFor="let workout of arrExercises">
+            <td>{{workout.Date  | date: 'MM/dd'}}</td>
+            <td>{{workout.Deadlift}}</td>
+            <td>{{workout.Dbell_Row}}</td>
+            <td>{{workout.Bbell_Press}}</td>
+            <td>{{workout.Squat}}</td>
+            <td>{{workout.Lat_Pull}}</td>
+            <td>{{workout.Bench_Press}}</td>
+        </tr>
+    </table>
+</div>
