@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵCompiler_compileModuleSync__POST_R3__ } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
@@ -16,19 +16,16 @@ export class GraphComponent implements OnInit {
   chartOptions = {
     responseive: true
   };
-  
-  labels: string[];
-  deadlift: string[]
-  Dbell_Row: string[]
-  Bbell_Press: string[]
-  Squat: string[]
-  Lat_Pull: string[]
-  Bench_Press: string[]
 
-    
+
+  labels  =  ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+
+
   // STATIC DATA FOR THE CHART IN JSON FORMAT.
   chartData = [
     {
+
       label: '1st Year',
       data: [21, 56, 4, 31, 45, 15, 57, 61, 9, 17, 24, 59] 
     },
@@ -52,22 +49,26 @@ export class GraphComponent implements OnInit {
   }
 
   constructor(private httpService: HttpClient) { }
-  arrExercises: string[];
-  arrDates: string[];
+  arrWorkouts: any[];
+  arrDates: any[] = [];
+  arrSimpleDates: any[] = [];
 
 
   ngOnInit() {
     this.httpService.get('./assets/Fitness.json').subscribe(
       data => {
-        this.arrExercises = data as string [] //fills the array with data
-        console.log(this.arrExercises);
+        this.arrWorkouts = data as string [] //fills the array with data
+        //console.log(this.arrExercises);
+        console.log(this.arrWorkouts);
+        // this.arrDates = this.arrExercises.sort();
+        // this.labels =  this.arrDates;
+        for(var i=0; i < this.arrWorkouts.length; i++)
+        {
+          var workoutDate = this.arrWorkouts[i].Date;
+          this.arrDates.push(workoutDate);
 
-        
-        this.arrDates = this.arrExercises.sort();
-        this.labels =  this.arrDates;
-        
+        }
         console.log(this.arrDates);
-
 
       },
       (err: HttpErrorResponse) => {

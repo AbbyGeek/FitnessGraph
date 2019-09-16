@@ -20,7 +20,6 @@ export class TableComponent implements OnInit {
       data => {
         this.arrExercises = data as string [] //fills the array with data
 
-        console.log(this.arrExercises);
       },
       (err: HttpErrorResponse) => {
         console.log(err.message);
