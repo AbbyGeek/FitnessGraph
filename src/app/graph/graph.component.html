@@ -2,8 +2,8 @@
   {{title}}!
 </h1>
 
-<div>
-  <canvas
+<div style="width: 1000px">
+  <canvas *ngIf="chartData.length"
       baseChart
       [chartType]="'line'"
       [datasets]="chartData"

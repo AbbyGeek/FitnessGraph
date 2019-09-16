@@ -1,82 +1,98 @@
-{
-  "Sat Apr 20 2019 00:00:00 GMT-0400 (EDT)": {
+[
+  {
+    "Date": "2019-04-20T04:00:00.000Z",
     "Deadlift": 100,
-    "DbellRow": 45,
-    "BbellPress": 70
+    "Dbell_Row": 45,
+    "Bbell_Press": 70
   },
-  "Tue Apr 23 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-04-23T04:00:00.000Z",
     "Squat": 85,
-    "Lat Pull": 100,
-    "Bench Press": 105
+    "Lat_Pull": 100,
+    "Bench_Press": 105
   },
-  "Tue Apr 30 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-04-30T04:00:00.000Z",
     "Deadlift": 110,
-    "Dbell Row": 45,
-    "Bbell Press": 60
+    "Dbell_Row": 45,
+    "Bbell_Press": 60
   },
-  "Fri May 03 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-05-03T04:00:00.000Z",
     "Squat": 105,
-    "Lat Pull": 110,
-    "Bench Press": 95
+    "Lat_Pull": 110,
+    "Bench_Press": 95
   },
-  "Mon May 06 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-05-06T04:00:00.000Z",
     "Deadlift": 125,
-    "Dbell Row": 45,
-    "Bbell Press": 70
+    "Dbell_Row": 45,
+    "Bbell_Press": 70
   },
-  "Tue May 14 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-05-14T04:00:00.000Z",
     "Squat": 115,
-    "Lat Pull": 110,
-    "Bench Press": 105
+    "Lat_Pull": 110,
+    "Bench_Press": 105
   },
-  "Fri May 24 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-05-24T04:00:00.000Z",
     "Deadlift": 145,
-    "Dbell Row": 50,
-    "Bbell Press": 60
+    "Dbell_Row": 50,
+    "Bbell_Press": 60
   },
-  "Tue May 28 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-05-28T04:00:00.000Z",
     "Squat": 125,
-    "Lat Pull": 120,
-    "Bench Press": 105
+    "Lat_Pull": 120,
+    "Bench_Press": 105
   },
-  "Tue Jun 04 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-06-04T04:00:00.000Z",
     "Deadlift": 135,
-    "Dbell Row": 50,
-    "Bbell Press": 80
+    "Dbell_Row": 50,
+    "Bbell_Press": 80
   },
-  "Sun Jun 09 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-06-09T04:00:00.000Z",
     "Squat": 125,
-    "Lat Pull": 120,
-    "Bench Press": 105
+    "Lat_Pull": 120,
+    "Bench_Press": 105
   },
-  "Thu Jun 13 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-06-13T04:00:00.000Z",
     "Deadlift": 135,
-    "Dbell Row": 50,
-    "Bbell Press": 80
+    "Dbell_Row": 50,
+    "Bbell_Press": 80
   },
-  "Mon Jul 22 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-07-22T04:00:00.000Z",
     "Squat": 125,
-    "Lat Pull": 110,
-    "Bench Press": 105
+    "Lat_Pull": 110,
+    "Bench_Press": 105
   },
-  "Wed Aug 14 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-08-14T04:00:00.000Z",
     "Deadlift": 135,
-    "Dbell Row": 50,
-    "Bbell Press": 70
+    "Dbell_Row": 50,
+    "Bbell_Press": 70
   },
-  "Tue Aug 20 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-08-20T04:00:00.000Z",
     "Squat": 130,
-    "Lat Pull": 120,
-    "Bench Press": 100
+    "Lat_Pull": 120,
+    "Bench_Press": 100
   },
-  "Mon Sep 09 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-09-09T04:00:00.000Z",
     "Deadlift": 135,
-    "Dbell Row": 50,
-    "Bbell Press": 70
+    "Dbell_Row": 50,
+    "Bbell_Press": 70
   },
-  "Fri Sep 13 2019 00:00:00 GMT-0400 (EDT)": {
+  {
+    "Date": "2019-09-13T04:00:00.000Z",
     "Squat": 135,
-    "Lat Pull": 120,
-    "Bench Press": 115
+    "Lat_Pull": 120,
+    "Bench_Press": 115
   }
-}
+]

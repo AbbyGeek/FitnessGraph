@@ -1,8 +1,8 @@
-import { Component, OnInit, ɵCompiler_compileModuleSync__POST_R3__ } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ChartsModule } from 'ng2-charts';
-import { isDate } from 'util';
+import { DatePipe } from '@angular/common';
+import { timeInterval } from 'rxjs/operators';
 
 
 
@@ -14,35 +14,30 @@ import { isDate } from 'util';
 export class GraphComponent implements OnInit {
   title = 'Workout Graph';
   chartOptions = {
-    responseive: true
+    responsive: true,
+
+    spanGaps: true,
+    scales: {
+      xAxes: [{
+        type: 'time',
+        distribution: 'linear',
+        time: {
+          unit:'week',
+          displayFormats: {
+            week: 'MM/DD'
+          },
+          min: '04/15'
+        }
+      }]
+    }
+
   };
-
-
-  labels  =  ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-
-
+  pipe = new DatePipe("en-us");
 
   // STATIC DATA FOR THE CHART IN JSON FORMAT.
-  chartData = [
-    {
-
-      label: '1st Year',
-      data: [21, 56, 4, 31, 45, 15, 57, 61, 9, 17, 24, 59] 
-    },
-    { 
-      label: '2nd Year',
-      data: [47, 9, 28, 54, 77, 51, 24]
-    }
-  ];
+  chartData = [];
    // CHART COLOR.
-   colors = [
-    { // 1st Year.
-      backgroundColor: 'rgba(77,83,96,0.2)'
-    },
-    { // 2nd Year.
-      backgroundColor: 'rgba(30, 169, 224, 0.8)'
-    }
-  ]
+   colors = []
 
   onChartClick(event) {
     console.log(event);
@@ -59,20 +54,19 @@ export class GraphComponent implements OnInit {
   arrBenchPress: any[] = [];
   arrData: any[] = [];
 
+  workoutData: any[] = [];
+
 
 
   ngOnInit() {
-    this.httpService.get('./assets/Fitness.json').subscribe(
+    this.httpService.get('./assets/FitnessData.json').subscribe(
       data => {
         this.arrWorkouts = data as string [] //fills the array with data
-        //console.log(this.arrExercises);
         console.log(this.arrWorkouts);
-        // this.arrDates = this.arrExercises.sort();
-        // this.labels =  this.arrDates;
         for(var i=0; i < this.arrWorkouts.length; i++)
         {
-          var workoutDate = this.arrWorkouts[i].Date;
-          this.arrDates.push(workoutDate);
+          var workoutDate = new Date(this.arrWorkouts[i].Date);
+          this.arrDates.push(this.pipe.transform(workoutDate, "MM/dd"));
 
           var Deadlift = this.arrWorkouts[i].Deadlift;
           this.arrDeadlift.push(Deadlift);
@@ -92,8 +86,14 @@ export class GraphComponent implements OnInit {
           var BenchPress = this.arrWorkouts[i].Bench_Press;
           this.arrBenchPress.push(BenchPress);
         }
-        this.arrData.push(this.arrBenchPress, this.arrLatPull, this.arrSquat, this.arrBbellPress, this.arrDbellRow, this.arrDeadlift);
-        console.log(this.arrData);
+        var deadliftObj = {label: "Deadlift", data: this.arrDeadlift, fill:'none', backgroundColor: "#FFC857", borderColor:"#FFC857"}
+        var dbellRowObj = {label: "DbellRow", data: this.arrDbellRow, fill:'none', backgroundColor: "#E9724C", borderColor: "#E9724C"}
+        var bbellPressObj = {label: "BbellPress", data: this.arrBbellPress, fill:'none', backgroundColor: "#C5283D", borderColor: "#C5283D"}
+        var squatObj = {label: "Squat", data: this.arrSquat, fill:'none', backgroundColor: "#481D24", borderColor: "#481D24"}
+        var latPullObj = {label: "LatPull", data: this.arrLatPull, fill:'none', backgroundColor:"#255F85", borderColor:"#255F85"}
+        var benchPressObj = {label: "BenchPress", data: this.arrBenchPress, fill:'none', backgroundColor:"#8A4F7D", borderColor:"#8A4F7D"}
+        this.chartData.push(deadliftObj, dbellRowObj, bbellPressObj, squatObj, latPullObj, benchPressObj);
+
       },
       (err: HttpErrorResponse) => {
         console.log(err.message);
