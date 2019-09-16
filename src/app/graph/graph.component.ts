@@ -51,7 +51,14 @@ export class GraphComponent implements OnInit {
   constructor(private httpService: HttpClient) { }
   arrWorkouts: any[];
   arrDates: any[] = [];
-  arrSimpleDates: any[] = [];
+  arrDeadlift: any[] = [];
+  arrDbellRow: any[] = [];
+  arrBbellPress: any[] = [];
+  arrSquat: any[] = [];
+  arrLatPull: any[] = [];
+  arrBenchPress: any[] = [];
+  arrData: any[] = [];
+
 
 
   ngOnInit() {
@@ -67,9 +74,26 @@ export class GraphComponent implements OnInit {
           var workoutDate = this.arrWorkouts[i].Date;
           this.arrDates.push(workoutDate);
 
-        }
-        console.log(this.arrDates);
+          var Deadlift = this.arrWorkouts[i].Deadlift;
+          this.arrDeadlift.push(Deadlift);
 
+          var DbellRow = this.arrWorkouts[i].Dbell_Row;
+          this.arrDbellRow.push(DbellRow);
+
+          var BbellPress = this.arrWorkouts[i].Bbell_Press;
+          this.arrBbellPress.push(BbellPress);
+
+          var Squat = this.arrWorkouts[i].Squat;
+          this.arrSquat.push(Squat);
+
+          var LatPull = this.arrWorkouts[i].Lat_Pull;
+          this.arrLatPull.push(LatPull);
+
+          var BenchPress = this.arrWorkouts[i].Bench_Press;
+          this.arrBenchPress.push(BenchPress);
+        }
+        this.arrData.push(this.arrBenchPress, this.arrLatPull, this.arrSquat, this.arrBbellPress, this.arrDbellRow, this.arrDeadlift);
+        console.log(this.arrData);
       },
       (err: HttpErrorResponse) => {
         console.log(err.message);
