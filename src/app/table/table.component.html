@@ -1,30 +1,24 @@
-<div style="text-align:left;width:500px;">
-    <h1>
-        {{ title }}!
-    </h1>
-
-    <table *ngIf="arrExercises">
-        <!-- ADD HEADERS -->
-        <tr>
-            <th>Date</th>
-            <th>Deadlift</th>
-            <th>Barbell Press</th>
-            <th>Dumbell Row</th>
-            <th>Bench Press</th>
-            <th>Lat Pull</th>
-            <th>Squat</th>
-            
-        </tr>
-
-        <!-- BIND ARRAY TO TABLE -->
-        <tr *ngFor="let workout of arrExercises">
-            <td>{{workout.Date  | date: 'MM/dd'}}</td>
-            <td>{{workout.Deadlift}}</td>
-            <td>{{workout.Dbell_Row}}</td>
-            <td>{{workout.Bbell_Press}}</td>
-            <td>{{workout.Squat}}</td>
-            <td>{{workout.Lat_Pull}}</td>
-            <td>{{workout.Bench_Press}}</td>
-        </tr>
-    </table>
+<div class='container'>
+    <ul class='table'>
+        <div class="table-header">
+            <div class='header-item'><a id="date" class="filter-link" href="#">Date</a></div>
+            <div class='header-item'><a id="deadlift" class="filter-link--number" href="#">Deadlift</a></div>
+            <div class='header-item'><a id="dbell_row" class="filter-link--number" href="#">Dumbell Row</a></div>
+            <div class='header-item'><a id="bbell_press" class="filter-link--number" href="#">Barbell Press</a></div>
+            <div class='header-item'><a id="squat" class="filter-link--number" href="#">Squat</a></div>
+            <div class='header-item'><a id="lat_pull" class="filter-link--number" href="#">Lat Pull</a></div>
+            <div class='header-item'><a id="bench_press" class="filter-link--number" href="#">BenchPress</a></div>
+        </div>
+        <div class='table-content' *ngFor="let workout of arrExercises">
+            <div class="table-row">
+                <div class='table-data'>{{workout.Date  | date: 'MM/dd'}}</div>
+                <div class='table-data'>{{workout.Deadlift}}</div>
+                <div class='table-data'>{{workout.Dbell_Row}}</div>
+                <div class='table-data'>{{workout.Bbell_Press}}</div>
+                <div class='table-data'>{{workout.Squat}}</div>
+                <div class='table-data'>{{workout.Lat_Pull}}</div>
+                <div class='table-data'>{{workout.Bench_Press}}</div>
+            </div>
+        </div>
+    </ul>
 </div>

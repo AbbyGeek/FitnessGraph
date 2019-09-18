@@ -13,9 +13,11 @@ import { timeInterval } from 'rxjs/operators';
 })
 export class GraphComponent implements OnInit {
   title = 'Workout Graph';
+  
   chartOptions = {
+    options: {
+    },
     responsive: true,
-
     spanGaps: true,
     scales: {
       xAxes: [{
@@ -28,9 +30,16 @@ export class GraphComponent implements OnInit {
           },
           min: '04/15'
         }
-      }]
-    }
-
+      }],
+      scales: {
+        yAxis: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    },
+  
   };
   pipe = new DatePipe("en-us");
 
@@ -62,7 +71,6 @@ export class GraphComponent implements OnInit {
     this.httpService.get('./assets/FitnessData.json').subscribe(
       data => {
         this.arrWorkouts = data as string [] //fills the array with data
-        console.log(this.arrWorkouts);
         for(var i=0; i < this.arrWorkouts.length; i++)
         {
           var workoutDate = new Date(this.arrWorkouts[i].Date);
