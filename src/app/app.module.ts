@@ -9,6 +9,8 @@ import { TableComponent } from './table/table.component';
 import { AddDataButtonComponent } from './add-data-button/add-data-button.component';
 import { FitnessDataService } from './fitness-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSortModule,
+    MatTableModule
   ],
   providers: [FitnessDataService],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import * as $ from 'jquery';
+import { MatSortModule } from '@angular/material/sort';
 
 @Component({
   selector: 'app-table',
@@ -11,12 +12,6 @@ import * as $ from 'jquery';
 })
 export class TableComponent implements OnInit {
   title = 'Workout Records';
-
-
-
-
-
-
 
 
   constructor(private httpService: HttpClient) { }
@@ -87,7 +82,7 @@ export class TableComponent implements OnInit {
             });
 
             $.each(rows, function (index, row) {
-              $table.append(row);
+               $table.append(row);
             });
 
             return false;
