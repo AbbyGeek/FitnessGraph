@@ -1,55 +1,45 @@
 
-<div class='container'>
-    <ul class='table'>
-        <div class="table-header">
-            <div class='header-item'><a id="date" class="filter-link" href="#">Date</a></div>
-            <div class='header-item'><a id="deadlift" class="filter-link--number" href="#">Deadlift</a></div>
-            <div class='header-item'><a id="dbell_row" class="filter-link--number" href="#">Dumbell Row</a></div>
-            <div class='header-item'><a id="bbell_press" class="filter-link--number" href="#">Barbell Press</a></div>
-            <div class='header-item'><a id="squat" class="filter-link--number" href="#">Squat</a></div>
-            <div class='header-item'><a id="lat_pull" class="filter-link--number" href="#">Lat Pull</a></div>
-            <div class='header-item'><a id="bench_press" class="filter-link--number" href="#">BenchPress</a></div>
-        </div>
-        <div class='table-content' *ngFor="let workout of arrExercises">
-            <div class="table-row">
-                <div class='table-data'>{{workout.Date  | date: 'MM/dd'}}</div>
-                <div class='table-data'>{{workout.Deadlift}}</div>
-                <div class='table-data'>{{workout.Dbell_Row}}</div>
-                <div class='table-data'>{{workout.Bbell_Press}}</div>
-                <div class='table-data'>{{workout.Squat}}</div>
-                <div class='table-data'>{{workout.Lat_Pull}}</div>
-                <div class='table-data'>{{workout.Bench_Press}}</div>
-            </div>
-        </div>
-    </ul>
-</div>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-<table mat-table [dataSource]="arrExercises" matSort class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.Date | date}} </td>
+    </ng-container>
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header="name"> Date </th>
-          <td mat-cell *matCellDef="let element"> {{arrExercises.Date}} </td>
-        </ng-container>
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Deadlift </th>
-          <td mat-cell *matCellDef="let element"> {{arrExercises.Deadlift}} </td>
-        </ng-container>
-      
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Dumbell Row </th>
-          <td mat-cell *matCellDef="let element"> {{arrExercises.Dbell_Row}} </td>
-        </ng-container>
-      
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Barbell Press </th>
-          <td mat-cell *matCellDef="let element"> {{arrExercises.bbell_press}} </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+    <!-- Name Column -->
+    <ng-container matColumnDef="Deadlift">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Deadlift </th>
+      <td mat-cell *matCellDef="let element"> {{element.Deadlift}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Dbell_Row">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Dumbell Row </th>
+      <td mat-cell *matCellDef="let element"> {{element.Dbell_Row}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Bbell_Press">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Barbell Press </th>
+      <td mat-cell *matCellDef="let element"> {{element.Bbell_Press}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Squat">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Squat </th>
+      <td mat-cell *matCellDef="let element"> {{element.Squat}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Lat_Pull">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Lateral Pulldown </th>
+      <td mat-cell *matCellDef="let element"> {{element.Lat_Pull}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Bench_Press">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Bench Press </th>
+      <td mat-cell *matCellDef="let element"> {{element.Bench_Press}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

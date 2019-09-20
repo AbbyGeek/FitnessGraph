@@ -11,6 +11,7 @@ import { FitnessDataService } from './fitness-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatTableModule } from '@angular/material';
     ChartsModule,
     HttpClientModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    BrowserAnimationsModule,
   ],
   providers: [FitnessDataService],
   bootstrap: [AppComponent]
